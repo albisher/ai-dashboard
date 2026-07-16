@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AI Radar — Week of Jul 9-16, 2026</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+  :root{--bg:#0C1019;--panel:#141A28;--line:#232B3D;--text:#E8EBF3;--muted:#818AA3;--cyan:#5EEAD4;--amber:#FFB86B;--red:#FF7A6E;--violet:#9C8CFF;}
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;padding:28px 32px 60px;}
+  h1{font-family:'Space Grotesk',sans-serif;font-size:26px;margin:0;}
+  .sub{color:var(--muted);font-size:13px;margin-top:4px;}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:24px 0;}
+  .stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px;}
+  .stat .num{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;}
+  .stat .label{color:var(--muted);font-size:12.5px;margin-top:8px;}
+  .c1 .num{color:var(--cyan);} .c2 .num{color:var(--amber);} .c3 .num{color:var(--violet);} .c4 .num{color:var(--red);}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin-bottom:16px;}
+  .panel h2{font-family:'Space Grotesk',sans-serif;font-size:15px;margin:0 0 12px;}
+  table{width:100%;border-collapse:collapse;font-size:13px;}
+  th{text-align:left;color:var(--muted);font-size:11px;text-transform:uppercase;padding-bottom:8px;border-bottom:1px solid var(--line);}
+  td{padding:9px 8px 9px 0;border-bottom:1px solid var(--line);vertical-align:top;}
+  td.repo{font-family:'JetBrains Mono',monospace;color:var(--cyan);white-space:nowrap;}
+  td.note{color:var(--muted);}
+  td.stars,td.days{font-family:'JetBrains Mono',monospace;color:var(--amber);white-space:nowrap;}
+  .badge{font-size:10.5px;font-family:'JetBrains Mono',monospace;padding:2px 7px;border-radius:10px;border:1px solid;}
+  .badge.active{color:#8CE99A;border-color:#8CE99A66;} .badge.quiet{color:var(--amber);border-color:#FFB86B66;} .badge.dormant{color:var(--muted);border-color:var(--line);}
+  .attention{background:#101521;border:1px solid var(--line);border-radius:14px;padding:22px 24px;}
+  .arow{display:flex;gap:16px;padding:12px 0;border-top:1px solid var(--line);}
+  .arow:first-of-type{border-top:none;padding-top:0;}
+  .arank{font-family:'JetBrains Mono',monospace;color:var(--muted);font-size:20px;font-weight:600;width:26px;}
+  footer{color:var(--muted);font-size:11.5px;text-align:center;margin-top:16px;}
+</style>
+</head>
+<body>
+<h1>AI Radar</h1>
+<div class="sub">Week of Jul 9-16, 2026 — auto-generated, portfolio: albisher</div>
+
+<div class="stats"><div class="stat c1"><div class="num">68%</div><div class="label">TSMC's June 2026 revenue grew 68% year-over-year to a record monthly high, confirming that AI chip demand is compounding at historic rates.</div></div>
+<div class="stat c2"><div class="num">$1/M</div><div class="label">GPT-5.6 Luna's input token price dropped to $1 per million tokens, part of a broader frontier model price war driving inference costs to unprecedented lows.</div></div>
+<div class="stat c3"><div class="num">3 labs, 1 day</div><div class="label">OpenAI, xAI/SpaceXAI, and Meta all shipped major frontier model releases within a 24-hour window on July 9, 2026, marking one of the most competitive single days in AI history.</div></div>
+<div class="stat c4"><div class="num">30 days</div><div class="label">A June 2 White House executive order introduced a voluntary framework giving the US government up to 30 days of pre-release access to covered frontier AI models for cybersecurity review.</div></div></div>
+
+<div class="panel">
+  <h2>Signal by category (0–10)</h2>
+  <canvas id="radarChart" style="max-height:240px;"></canvas>
+</div>
+
+<div class="panel">
+  <h2>Your repo portfolio</h2>
+  <table><tr><th>Repo</th><th>Last push</th><th>Status</th><th>What it is</th></tr><tr>
+              <td class="repo">LoreCraft_AI</td>
+              <td class="days">0d</td>
+              <td><span class="badge active">active</span></td>
+              <td class="note">Python</td>
+            </tr>
+<tr>
+              <td class="repo">ArabAI</td>
+              <td class="days">27d</td>
+              <td><span class="badge active">active</span></td>
+              <td class="note">Python</td>
+            </tr>
+<tr>
+              <td class="repo">tawreed_v1</td>
+              <td class="days">0d</td>
+              <td><span class="badge active">active</span></td>
+              <td class="note">Tawreed - Excel workflow automation system</td>
+            </tr>
+<tr>
+              <td class="repo">ai-taskboard</td>
+              <td class="days">22d</td>
+              <td><span class="badge active">active</span></td>
+              <td class="note">Git-backed supervisor taskboard (multi-project)</td>
+            </tr>
+<tr>
+              <td class="repo">supervisor-cli-product</td>
+              <td class="days">23d</td>
+              <td><span class="badge active">active</span></td>
+              <td class="note">Supervisor CLI product research and planning</td>
+            </tr>
+<tr>
+              <td class="repo">family-tree</td>
+              <td class="days">77d</td>
+              <td><span class="badge quiet">quiet</span></td>
+              <td class="note">FamilyHub Tree - Family tree platform for Arab/Gulf families with 10,000+ members</td>
+            </tr>
+<tr>
+              <td class="repo">WindowCleanner</td>
+              <td class="days">111d</td>
+              <td><span class="badge quiet">quiet</span></td>
+              <td class="note">HTML</td>
+            </tr>
+<tr>
+              <td class="repo">RALF_Notes</td>
+              <td class="days">183d</td>
+              <td><span class="badge dormant">dormant</span></td>
+              <td class="note">Python</td>
+            </tr>
+<tr>
+              <td class="repo">my-ideas-automation</td>
+              <td class="days">283d</td>
+              <td><span class="badge dormant">dormant</span></td>
+              <td class="note">Comprehensive IoT and automation projects collection including Home Assistant, Matter integration, DCS-8000LH camera, ESP32 smart speaker, USB remote TV control, and Xiaomi L05G IR control customization</td>
+            </tr>
+<tr>
+              <td class="repo">labeeb</td>
+              <td class="days">408d</td>
+              <td><span class="badge dormant">dormant</span></td>
+              <td class="note">Python</td>
+            </tr>
+<tr>
+              <td class="repo">UaiBot</td>
+              <td class="days">413d</td>
+              <td><span class="badge dormant">dormant</span></td>
+              <td class="note">Python</td>
+            </tr>
+<tr>
+              <td class="repo">agent-chat-app</td>
+              <td class="days">551d</td>
+              <td><span class="badge dormant">dormant</span></td>
+              <td class="note">streamlit web app to chat with your local ollama model.</td>
+            </tr></table>
+</div>
+
+<div class="panel">
+  <h2>Trending on GitHub this week</h2>
+  <table><tr><th>Repo</th><th>Stars</th><th>Why</th></tr><tr><td class="repo">anthropics/ai-agents</td><td class="stars">228k (+2.4k/7d)</td><td class="note">Anthropic's official agent samples library surged as developers raced to wire up Claude to the new Muse Spark and GPT-5.6 APIs using MCP-compatible patterns.</td></tr>
+<tr><td class="repo">MadsLorentzen/ai-job-search</td><td class="stars">19k (+5.6k/month)</td><td class="note">An agentic job-application framework built on Claude Code that automates CV tailoring, cover letters, and interview prep — one of the fastest-growing new repos of July.</td></tr>
+<tr><td class="repo">usestrix/strix</td><td class="stars">13.8k (+1.3k/month)</td><td class="note">Open-source AI-powered penetration testing tool riding the wave of security interest sparked by the White House's new frontier-model cybersecurity executive order.</td></tr>
+<tr><td class="repo">Zackriya-Solutions/meetily</td><td class="stars">11.9k (+1.2k/month)</td><td class="note">A fully local, privacy-first AI meeting assistant using Parakeet/Whisper transcription and Ollama summarization — emblematic of the growing demand for on-device agentic tools.</td></tr>
+<tr><td class="repo">OpenCut-app/OpenCut</td><td class="stars">Top GitHub trending Jul 14</td><td class="note">Open-source video editing app that topped GitHub trending this week as creators sought free alternatives to proprietary AI video tools like Google Video Remix.</td></tr>
+<tr><td class="repo">HKUDS/Vibe-Trading</td><td class="stars">Top GitHub trending Jul 14</td><td class="note">An AI-driven trading research framework that climbed trending charts as financial-agent use cases gained traction following Muse Spark 1.1's strong Finance Agent v2 benchmark scores.</td></tr></table>
+</div>
+
+<div class="panel">
+  <h2>This week's news → your repos</h2>
+  <table><tr><th>Development</th><th>Repo(s)</th><th>Why</th></tr><tr><td class="note">Three frontier labs launch major models in a single day, triggering an AI price war with output token costs dropping to $4–$6.</td><td class="repo">albisher/LoreCraft_AI, albisher/ArabAI, albisher/ai-taskboard, albisher/agent-chat-app</td><td class="note">Dramatically cheaper frontier model inference directly reduces operating costs for any AI-powered app calling external APIs, making ambitious features more affordable across all AI-driven projects in the portfolio.</td></tr>
+<tr><td class="note">Meta abandons open-weight Llama strategy with Muse Spark 1.1, launching its first paid closed model API with native MCP support and 1M-token context.</td><td class="repo">albisher/LoreCraft_AI, albisher/ArabAI, albisher/ai-taskboard, albisher/supervisor-cli-product</td><td class="note">Native MCP support and a 1M-token context window in a new major API is directly relevant to agentic and supervisor-style Python projects that likely orchestrate LLM calls and multi-step workflows.</td></tr>
+<tr><td class="note">AI agents tooling surges in popularity as developers wire up models to MCP-compatible patterns, with anthropics/ai-agents repo hitting 228k stars.</td><td class="repo">albisher/ai-taskboard, albisher/supervisor-cli-product, albisher/LoreCraft_AI</td><td class="note">The ai-taskboard and supervisor-cli-product repos are explicitly agent/supervisor orchestration tools, making the trending MCP-compatible agent patterns a direct architectural reference and competitive signal.</td></tr>
+<tr><td class="note">Meetily, a fully local privacy-first AI meeting assistant using Ollama summarization, becomes one of the fastest-growing repos, reflecting demand for on-device agentic tools.</td><td class="repo">albisher/agent-chat-app, albisher/labeeb, albisher/UaiBot</td><td class="note">The agent-chat-app repo is explicitly built around local Ollama models, and the dormant labeeb/UaiBot repos are likely local AI assistants, all aligned with the validated market demand Meetily demonstrates.</td></tr>
+<tr><td class="note">GPT-5.6 Luna's input token price drops to $1 per million tokens as a frontier model price war drives inference costs to unprecedented lows.</td><td class="repo">albisher/tawreed_v1, albisher/LoreCraft_AI, albisher/ArabAI</td><td class="note">Workflow automation (tawreed_v1) and specialized AI apps (LoreCraft_AI, ArabAI) that embed LLM calls can now integrate more aggressive AI features without significant cost concerns.</td></tr>
+<tr><td class="note">White House executive order introduces voluntary 30-day government pre-release cybersecurity review framework for frontier AI models, with Illinois advancing mandatory annual safety audits.</td><td class="repo">albisher/supervisor-cli-product, albisher/ai-taskboard</td><td class="note">A supervisor/CLI product targeting enterprise or government-adjacent users may need to account for compliance requirements around AI model usage as the regulatory landscape solidifies.</td></tr></table>
+</div>
+
+<div class="attention">
+  <h2 style="color:var(--amber);font-family:'Space Grotesk',sans-serif;">⚡ Top 5 this week</h2>
+  <div class="arow"><div class="arank">01</div>
+              <div><b>Three frontier labs launch major models in a single day, triggering an AI price war.</b><p>On July 9, 2026, OpenAI shipped GPT-5.6 (in Sol, Terra, and Luna tiers), xAI released Grok 4.5, and Meta launched Muse Spark 1.1, driving output token costs down to the $4–$6 range versus $25–$50 for older flagship models. The simultaneous releases marked one of the most competitive single days in AI history and forced every major provider to reconsider its pricing structure.</p></div></div>
+<div class="arow"><div class="arank">02</div>
+              <div><b>Meta abandons its open-weight Llama strategy with Muse Spark 1.1, launching its first paid closed model and developer API.</b><p>Muse Spark 1.1 is a proprietary, closed-weight multimodal reasoning model with a 1-million-token context window, native MCP support, and parallel tool-calling, available via the new Meta Model API at $1.25 per million input tokens. The pivot signals that Meta now believes the profit opportunity lies in the agentic API layer, not in distributing free open weights — a strategic reversal analysts called the most consequential AI business shift since OpenAI went commercial.</p></div></div>
+<div class="arow"><div class="arank">03</div>
+              <div><b>AI labs race to build custom inference silicon, with DeepSeek, Anthropic, and OpenAI all making hardware moves this week.</b><p>Reuters confirmed DeepSeek is secretly designing its own inference chip to reduce dependence on Nvidia and Huawei, while Anthropic entered early talks with Samsung about a 2nm custom accelerator — both following OpenAI's June unveiling of its Broadcom-built Jalapeño inference processor. The convergence reveals that inference, now accounting for roughly two-thirds of all AI compute, has become the primary hardware battleground.</p></div></div>
+<div class="arow"><div class="arank">04</div>
+              <div><b>TSMC posts its strongest quarter ever as AI chip demand shatters records, with Q2 revenue reaching $39.5 billion.</b><p>TSMC's June revenue alone jumped 68% year-over-year to a record monthly high, capping a Q2 that beat analyst forecasts and put the company on track for over $40 billion in AI chip revenue for full-year 2026. The results underscore that AI infrastructure spending is accelerating, not plateauing, with TSMC's 2nm node now in high-volume production.</p></div></div>
+<div class="arow"><div class="arank">05</div>
+              <div><b>Trump's June AI executive order shapes July model launches as a voluntary 30-day government pre-release review framework nears its August 1 implementation deadline.</b><p>The June 2 executive order established a voluntary framework under which frontier AI developers may provide the US government up to 30 days of pre-release access to powerful models for cybersecurity assessment, with the formal framework due from agencies by August 1, 2026. Illinois also advanced the first state law requiring annual third-party safety audits of frontier AI models, deepening the regulatory patchwork that labs must now navigate alongside federal requirements.</p></div></div>
+</div>
+
+<footer>Generated automatically every Monday via GitHub Actions. Not reviewed by a human before publishing.</footer>
+
+<script>
+new Chart(document.getElementById('radarChart'), {
+  type: 'radar',
+  data: { labels: ["Frontier Models", "AI Agents", "Image / Video Gen", "Open-Weight & Local", "Regulation & Safety", "Dev Tooling / MCP"], datasets: [{ label:'This week', data: [10, 8, 4, 5, 7, 6],
+    backgroundColor:'rgba(94,234,212,0.15)', borderColor:'#5EEAD4', pointBackgroundColor:'#5EEAD4', borderWidth:2 }] },
+  options: { responsive:true, plugins:{legend:{display:false}},
+    scales:{ r:{ min:0,max:10, angleLines:{color:'rgba(255,255,255,0.06)'}, grid:{color:'rgba(255,255,255,0.06)'},
+      pointLabels:{color:'#E8EBF3',font:{size:11}}, ticks:{display:false} } } }
+});
+</script>
+</body>
+</html>
